@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Exercise = require("../models/exercise.js");
+const Exercise = require("../models/exercise");
 
 // GET /api/workouts
 router.get("/api/workouts", (req, res) => {
@@ -8,14 +8,20 @@ router.get("/api/workouts", (req, res) => {
         console.log("Workout = " + workout);
         res.send(workout)
     })
+    .catch( (err) => {
+        if(err) throw err
+    })
 });
 
 // PUT /api/workouts
-router.put('/api/workout/:id', (req, res) => {
+router.put('/api/workouts/:id', (req, res) => {
     Exercise.findByIdAndUpdate(req.params.id, {$push: { workouts: req.body} }, {new: true})
     .then( (workout) => {
         console.log("Workout = " + workout);
         res.send(workout);
+    })
+    .catch( (err) => {
+        if(err) throw err
     })
 });
 
@@ -26,14 +32,20 @@ router.post('/api/workouts', (req, res) => {
     console.log("Workout = " + workout);
     res.send(workout);
     })
+    .catch( (err) => {
+        if(err) throw err
+    })
 })
 
 // GET /api/workouts/range
-router.get('api/workouts/range', (req, res) => {
+router.get('/api/workouts/range', (req, res) => {
     Exercise.find({}).limit(7)
     .then( (workout) => {
     console.log("Workout = " + workout);
     res.send(workout);
+    })
+    .catch( (err) => {
+        if(err) throw err
     })
 })
 
