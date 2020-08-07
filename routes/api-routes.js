@@ -1,8 +1,8 @@
-const app = require("express").Router();
-const Exercise = require("../models/exercise");
+const router = require("express").Router();
+const Exercise = require("../models/exercise.js");
 
 // GET /api/workouts
-app.get("/api/workouts", (req, res) => {
+router.get("/api/workouts", (req, res) => {
     Exercise.find({})
     .then( (workout) => {
         console.log("Workout = " + workout);
@@ -11,7 +11,7 @@ app.get("/api/workouts", (req, res) => {
 });
 
 // PUT /api/workouts
-app.put('/api/workout/:id', (req, res) => {
+router.put('/api/workout/:id', (req, res) => {
     Exercise.findByIdAndUpdate(req.params.id, {$push: { workouts: req.body} }, {new: true})
     .then( (workout) => {
         console.log("Workout = " + workout);
@@ -20,7 +20,7 @@ app.put('/api/workout/:id', (req, res) => {
 });
 
 // POST /api/workouts
-app.post('/api/workouts', (req, res) => {
+router.post('/api/workouts', (req, res) => {
     Exercise.create(req.body)
     .then( (workout) => {
     console.log("Workout = " + workout);
@@ -29,7 +29,7 @@ app.post('/api/workouts', (req, res) => {
 })
 
 // GET /api/workouts/range
-app.get('api/workouts/range', (req, res) => {
+router.get('api/workouts/range', (req, res) => {
     Exercise.find({}).limit(7)
     .then( (workout) => {
     console.log("Workout = " + workout);
@@ -37,4 +37,4 @@ app.get('api/workouts/range', (req, res) => {
     })
 })
 
-module.exports = app;
+module.exports = router;

@@ -121,7 +121,7 @@ async function handleFormSubmit(event) {
   }
 
   await API.addExercise(workoutData);
-  // claer inputs after info is gathered
+  // clears inputs after info is gathered
   clearInputs();
   toast.classList.add("success");
 }
