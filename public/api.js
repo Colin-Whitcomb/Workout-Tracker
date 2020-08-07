@@ -1,3 +1,5 @@
+
+// all encompassing API 
 const API = {
   async getLastWorkout() {
     let res;
