@@ -1,5 +1,8 @@
-// get all workout data from back-end
+// get all workout data from back-end!! 
 
+// GET Route ?? 
+// Gather all info from db? 
+// Use data to populate charts
 fetch("/api/workouts/range")
   .then(response => {
     return response.json();

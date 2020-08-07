@@ -1,4 +1,7 @@
+// function to start workout 
+
 async function initWorkout() {
+  // gets info from last workout 
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
   if (lastWorkout) {
@@ -6,6 +9,7 @@ async function initWorkout() {
       .querySelector("a[href='/exercise?']")
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
+    // takes info from last workout and adds it in 
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
       totalDuration: lastWorkout.totalDuration,

@@ -17,6 +17,7 @@ const newWorkout = document.querySelector(".new-workout")
 let workoutType = null;
 let shouldNavigateAway = false;
 
+// start exercise (wait if they are creating one)
 async function initExercise() {
   let workout;
 
@@ -32,6 +33,7 @@ async function initExercise() {
 
 initExercise();
 
+// remove or add depending on type of workout
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -46,9 +48,11 @@ function handleWorkoutTypeChange(event) {
     resistanceForm.classList.add("d-none");
   }
 
+  // make sure all inputs are good
   validateInputs();
 }
 
+// make sure they've typed something / trim
 function validateInputs() {
   let isValid = true;
 
@@ -86,6 +90,7 @@ function validateInputs() {
     }
   }
 
+  // if valid = add complete btns 
   if (isValid) {
     completeButton.removeAttribute("disabled");
     addButton.removeAttribute("disabled");
@@ -95,6 +100,7 @@ function validateInputs() {
   }
 }
 
+// collects information from user about workouts 
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -115,10 +121,12 @@ async function handleFormSubmit(event) {
   }
 
   await API.addExercise(workoutData);
+  // claer inputs after info is gathered
   clearInputs();
   toast.classList.add("success");
 }
 
+// "alert" type message
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");
   if (shouldNavigateAway) {
@@ -126,6 +134,7 @@ function handleToastAnimationEnd() {
   }
 }
 
+// clear out the form
 function clearInputs() {
   cardioNameInput.value = "";
   nameInput.value = "";
