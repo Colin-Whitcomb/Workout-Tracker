@@ -4,6 +4,7 @@ const API = {
   async getLastWorkout() {
     let res;
     try {
+      // gets Exercise
       res = await fetch("/api/workouts");
     } catch (err) {
       console.log(err)
@@ -14,7 +15,8 @@ const API = {
   },
   async addExercise(data) {
     const id = location.search.split("=")[1];
-
+  
+    // PUT request with param of id
     const res = await fetch("/api/workouts/" + id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
