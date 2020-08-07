@@ -27,6 +27,7 @@ const API = {
 
     return json;
   },
+  // GET /api/workouts
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
       method: "POST",
@@ -39,6 +40,7 @@ const API = {
     return json;
   },
 
+  // GET /api/workouts/range
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
     const json = await res.json();
