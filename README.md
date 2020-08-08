@@ -24,6 +24,7 @@ ______________
 
 Graphical Output
 <p>
+<p align="center">
     <img src="images/ss1.png" width="400" />
 </p>
 
