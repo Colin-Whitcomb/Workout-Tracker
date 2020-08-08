@@ -25,12 +25,12 @@ ______________
 Graphical Output
 <p>
 <p align="center">
-    <img src="images/ss1.png" width="400" />
+    <img src="images/ss1.png" width="520" />
 </p>
 
 Main Screen / Previous Workout Recap 
 <p align="center">
-    <img src="images/ss3.png" width="280" />
+    <img src="images/ss3.png" width="320" />
 </p>
 
 
